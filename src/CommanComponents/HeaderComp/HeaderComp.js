@@ -29,7 +29,7 @@ const HeaderComp = ({rightIcon}) => {
       </TouchableOpacity>
       : 
       <TouchableOpacity style={{marginHorizontal:30}}
-      onPress={()=>goBack()}
+      onPress={()=> navigation.goBack()}
       rightIcon='goBack'
     > 
       <Image 

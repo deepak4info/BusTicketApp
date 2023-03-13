@@ -35,7 +35,7 @@ const GoogleBox = ({Account}) => {
 <View style={{flexDirection:'row'}}> 
 <Text style={{fontSize:16, color:'#000', fontWeight:'500', marginTop:30}}>Already Have an account ?</Text>
 <TouchableOpacity onPress={()=>{
-    navigation.navigate('SignUpScreen')
+    navigation.navigate('SignInScreen')
 }}> 
 <Text style={{fontSize:16, color:'#5669FF', fontWeight:'500', marginTop:30}}>Sign In</Text>
 </TouchableOpacity>
