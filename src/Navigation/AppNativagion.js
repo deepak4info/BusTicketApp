@@ -13,7 +13,7 @@ import LoginWithGoogle from '../Screens/LoginWithGoogle/LoginWithGoogle';
 import GuestUser from '../Screens/GuestUser/GuestUser';
 import SearchBusScreen from '../Screens/SearchBusScreen/SearchBusScreen';
 import ForgetPassword from '../Screens/SignUpScreen/ForgetPassword';
-
+import SelectBus from '../Screens/SelectBusScreen/SelectBus';
 
 
 
@@ -60,17 +60,21 @@ const AppNativagion = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-        name='SearchBusScreen'
-        component={SearchBusScreen}
+          name='SearchBusScreen'
+          component={SearchBusScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ForgetPassword'
+          component={ForgetPassword}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+        name='SelectBus'
+        component={SelectBus}
         options={{headerShown:false}}
         />
-            <Stack.Screen
-        name='ForgetPassword'
-        component={ForgetPassword}
-        options={{headerShown:false}}
-        />
-
-
+        
       </Stack.Navigator>
     </NavigationContainer>
   )

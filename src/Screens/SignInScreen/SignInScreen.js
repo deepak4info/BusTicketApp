@@ -24,6 +24,7 @@ const navigation = useNavigation();
       />
     <BtnComp 
   btnNameComp='SignIn'
+  onPress={() => navigation.navigate('SearchBusScreen')}
   />
 
       <GoogleBox 
