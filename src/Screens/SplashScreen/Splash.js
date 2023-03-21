@@ -7,7 +7,7 @@ const Splash = () => {
 
  useEffect(()=>{
     setTimeout(()=>{
-        navigation.navigate('SignInScreen')
+        navigation.navigate('SelectSeatScreen')
     },1000)
        
  },[]);  

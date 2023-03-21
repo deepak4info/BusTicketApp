@@ -14,6 +14,8 @@ import GuestUser from '../Screens/GuestUser/GuestUser';
 import SearchBusScreen from '../Screens/SearchBusScreen/SearchBusScreen';
 import ForgetPassword from '../Screens/SignUpScreen/ForgetPassword';
 import SelectBus from '../Screens/SelectBusScreen/SelectBus';
+import SelectSeatScreen from '../Screens/SelectSeat/SelectSeatScreen';
+
 
 
 
@@ -74,7 +76,11 @@ const AppNativagion = () => {
         component={SelectBus}
         options={{headerShown:false}}
         />
-        
+        <Stack.Screen 
+        name='SelectSeatScreen'
+        component={SelectSeatScreen}
+        options={{headerShown:false}}
+        />        
       </Stack.Navigator>
     </NavigationContainer>
   )
