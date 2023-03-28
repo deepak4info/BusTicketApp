@@ -15,8 +15,8 @@ import SearchBusScreen from '../Screens/SearchBusScreen/SearchBusScreen';
 import ForgetPassword from '../Screens/SignUpScreen/ForgetPassword';
 import SelectBus from '../Screens/SelectBusScreen/SelectBus';
 import SelectSeatScreen from '../Screens/SelectSeat/SelectSeatScreen';
-
-
+import SelectPickUpandDropPoint from '../Screens/SelectPickupandDropPoint/SelectPickUpandDropPoint';
+import PassengerDetails from '../Screens/PassengerDetails/PassengerDetails';
 
 
 const Stack = createNativeStackNavigator();
@@ -72,16 +72,30 @@ const AppNativagion = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-        name='SelectBus'
-        component={SelectBus}
-        options={{headerShown:false}}
+          name='SelectBus'
+          component={SelectBus}
+          options={{ headerShown: false }}
         />
-        <Stack.Screen 
-        name='SelectSeatScreen'
-        component={SelectSeatScreen}
-        options={{headerShown:false}}
-        />        
+        <Stack.Screen
+          name='SelectSeatScreen'
+          component={SelectSeatScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='SelectPickUpandDropPoint'
+          component={SelectPickUpandDropPoint}
+          options={{ headerShown: false }}
+        />
+           <Stack.Screen
+          name='PassengerDetails'
+          component={PassengerDetails}
+          options={{ headerShown: false }}
+        />
+
       </Stack.Navigator>
+
+
+
     </NavigationContainer>
   )
 }

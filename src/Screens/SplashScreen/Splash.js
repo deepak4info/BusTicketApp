@@ -7,7 +7,7 @@ const Splash = () => {
 
  useEffect(()=>{
     setTimeout(()=>{
-        navigation.navigate('SelectSeatScreen')
+        navigation.navigate('PassengerDetails')
     },1000)
        
  },[]);  
