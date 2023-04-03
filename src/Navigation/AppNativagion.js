@@ -17,6 +17,10 @@ import SelectBus from '../Screens/SelectBusScreen/SelectBus';
 import SelectSeatScreen from '../Screens/SelectSeat/SelectSeatScreen';
 import SelectPickUpandDropPoint from '../Screens/SelectPickupandDropPoint/SelectPickUpandDropPoint';
 import PassengerDetails from '../Screens/PassengerDetails/PassengerDetails';
+import ContactDetails from '../Screens/ContactDetails/ContactDetails';
+import VerifyAllDetails from '../Screens/VerifyAllDetails/VerifyAllDetails';
+import DataNotFound from '../Screens/DataNotFound/DataNotFound';
+import SomethineWentWorng from '../Screens/DataNotFound/SomethineWentWorng';
 
 
 const Stack = createNativeStackNavigator();
@@ -86,11 +90,32 @@ const AppNativagion = () => {
           component={SelectPickUpandDropPoint}
           options={{ headerShown: false }}
         />
-           <Stack.Screen
+        <Stack.Screen
           name='PassengerDetails'
           component={PassengerDetails}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name='ContactDetails'
+          component={ContactDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='VerifyAllDetails'
+          component={VerifyAllDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='DataNotFound'
+          component={DataNotFound}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='SomethineWentWorng'
+          component={SomethineWentWorng}
+          options={{ headerShown: false }}
+        />
+
 
       </Stack.Navigator>
 

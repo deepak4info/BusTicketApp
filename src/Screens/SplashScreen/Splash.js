@@ -7,7 +7,7 @@ const Splash = () => {
 
  useEffect(()=>{
     setTimeout(()=>{
-        navigation.navigate('PassengerDetails')
+        navigation.navigate('DataNotFound')
     },1000)
        
  },[]);  
