@@ -1,43 +1,44 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
+
 
 const GoogleBox = ({Account}) => {
   const navigation = useNavigation();
   return (
-    <View style={{flex:0.3, width:'100%', justifyContent:'center', alignItems:'center'}}>
-      <Text style={{fontSize:22,color:'#9d9898', fontWeight:'900',marginTop:20}}>OR</Text>
+    <View style={styles.containerBox}>
+      <Text style={styles.containerBoxText}>OR</Text>
 
-      <TouchableOpacity style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center', width:'100%',marginTop:20}}
+      <TouchableOpacity style={styles.socialbox}
       onPress={()=>{navigation.navigate('LoginWithGoogle')}}
-     
       > 
-        <Image source={require('../../Assets/Images/google.png')} style={{width:50, height:50}} />
-        <Text  style={{fontSize:16, color:'#000', fontWeight:'500', marginLeft:20}}> Login With Google </Text>
+        <Image source={require('../../Assets/Images/google.png')} style={styles.socialboxImg} />
+        <Text  style={styles.socialboxText}> Login With Google </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center',  width:'100%', marginTop:30,}}
+      <TouchableOpacity style={styles.socialbox}
         onPress={()=>{navigation.navigate('GuestUser')}}
       
       > 
-        <Image source={require('../../Assets/Images/user.png')} style={{width:50, height:50}} />
-        <Text  style={{fontSize:16, color:'#000', fontWeight:'500', marginLeft:20}}> Guest User Login</Text>
+        <Image source={require('../../Assets/Images/user.png')} style={styles.socialboxImg} />
+        <Text style={styles.socialboxText}> Guest User Login</Text>
       </TouchableOpacity>
 { (Account == 'SignIn') ? 
-  <View style={{flexDirection:'row'}}> 
-<Text style={{fontSize:16, color:'#000', fontWeight:'500', marginTop:30}}>Don't Have an account?</Text>
+  <View style={{flexDirection:'row', marginVertical:responsiveHeight(4),}}> 
+<Text style={styles.socialboxText}>Don't Have an account?</Text>
 <TouchableOpacity onPress={()=>{
     navigation.navigate('SignUpScreen')
 }}> 
-<Text style={{fontSize:16, color:'#5669FF', fontWeight:'500', marginTop:30}}>Sign Up</Text>
+<Text style={[styles.socialboxText,{color:'#3D56F0'}]}>Sign Up</Text>
 </TouchableOpacity>
 </View>
 :
-<View style={{flexDirection:'row'}}> 
-<Text style={{fontSize:16, color:'#000', fontWeight:'500', marginTop:30}}>Already Have an account ?</Text>
+<View style={{flexDirection:'row',marginVertical:responsiveHeight(4),}}> 
+<Text style={styles.socialboxText}>Already Have an account ?</Text>
 <TouchableOpacity onPress={()=>{
     navigation.navigate('SignInScreen')
 }}> 
-<Text style={{fontSize:16, color:'#5669FF', fontWeight:'500', marginTop:30}}>Sign In</Text>
+<Text style={[styles.socialboxText,{color:'#3D56F0'}]}>Sign In</Text>
 </TouchableOpacity>
 </View>
 }
@@ -48,4 +49,11 @@ const GoogleBox = ({Account}) => {
 
 export default GoogleBox
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  containerBox:{flex:0.25, width:'100%', justifyContent:'center', alignItems:'center'},
+  containerBoxText:{fontSize:responsiveFontSize(2.4),color:'#9d9898', fontWeight:'900',marginTop:responsiveHeight(2)},
+socialbox:{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center', width:'100%',marginTop:responsiveHeight(2)},
+socialboxImg:{width:responsiveWidth(10), height:responsiveHeight(6)},
+socialboxText:{fontSize:responsiveFontSize(2), color:'#000', fontWeight:'500', marginLeft:responsiveWidth(3)},
+
+})

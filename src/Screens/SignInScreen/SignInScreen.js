@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import HeaderComp from '../../CommanComponents/HeaderComp/HeaderComp';
@@ -9,27 +9,29 @@ import BtnComp from '../../CommanComponents/BtnComponent/BtnComp';
 
 
 const SignInScreen = () => {
-const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
-    <View style={{flex:1, backgroundColor:'#fff'}}>
+    <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <HeaderComp
-       rightIcon='openmenu'  
+        rightIcon='openmenu'
       />
       <KeyboardAwareScrollView>
-      <InputComp 
-      textLabel='SignIn' 
-      FullName='SignIn'
-      ConfirmPassword='SignIn'
-      />
-    <BtnComp 
-  btnNameComp='SignIn'
-  onPress={() => navigation.navigate('SearchBusScreen')}
-  />
+        <InputComp
+          textLabel='SignIn'
+          FullName='Sign In'
+          ConfirmPassword='SignIn'
+          Forgot='Forgot Password ?'
+        />
 
-      <GoogleBox 
-      Account='SignIn'
-      />
+        <BtnComp
+          btnNameComp='Sign In'
+          onPress={() => navigation.navigate('SearchBusScreen')}
+        />
+
+        <GoogleBox
+          Account='SignIn'
+        />
       </KeyboardAwareScrollView>
     </View>
   )

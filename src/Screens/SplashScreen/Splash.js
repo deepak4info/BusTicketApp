@@ -7,8 +7,8 @@ const Splash = () => {
 
  useEffect(()=>{
     setTimeout(()=>{
-        navigation.navigate('DataNotFound')
-    },1000)
+        navigation.navigate('SignInScreen')
+    },2000)
        
  },[]);  
   return (

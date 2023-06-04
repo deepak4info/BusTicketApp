@@ -1,13 +1,56 @@
-import { Image, StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import {  responsiveWidth, responsiveHeight } from 'react-native-responsive-dimensions'
 
 
-const HeaderComp = ({rightIcon}) => {
+const HeaderComp = ({ rightIcon }) => {
   const navigation = useNavigation();
   return (
-    <View style={{flexDirection:'row', backgroundColor:'white', height:60,borderBottomWidth:5,borderBottomColor:'#e4dfdf',
-    justifyContent:'flex-start',alignItems:'center',
+    <View style={styles.HeaderTop}>
+      {(rightIcon == 'openmenu') ?
+        <TouchableOpacity style={{ marginHorizontal: '6%' }}
+          onPress={() => { navigation.navigate('OpenDrow') }}
+          rightIcon='openmenu'
+        >
+          <Image
+            source={require('../../Assets/Images/more.png')}
+            style={styles.HeaderTopImage}
+            resizeMode='contain'
+          />
+        </TouchableOpacity>
+        :
+        <TouchableOpacity style={{ marginHorizontal: '6%' }}
+          onPress={() => navigation.goBack()}
+          rightIcon='goBack'
+        >
+          <Image
+            source={require('../../Assets/Images/back.png')}
+            style={styles.HeaderTopImage}
+            resizeMode='contain'
+          />
+        </TouchableOpacity>
+      }
+
+      <TouchableOpacity
+        onPress={() => { navigation.navigate('MyBooking') }}
+      >
+        <Image
+          source={require('../../Assets/Images/Busbox.png')}
+          style={{ width: responsiveWidth(35), height: '90%' }}
+          resizeMode='contain'
+        />
+      </TouchableOpacity>
+    </View>
+  )
+}
+
+export default HeaderComp
+
+const styles = StyleSheet.create({
+  HeaderTop: {
+    flexDirection: 'row', backgroundColor: '#fff', height: '10%', borderBottomWidth: responsiveWidth(5), borderBottomColor: '#e4dfdf',
+    justifyContent: 'flex-start', alignItems: 'center',
     shadowColor: "#000",
     shadowOffset: {
       width: 3,
@@ -16,43 +59,8 @@ const HeaderComp = ({rightIcon}) => {
     shadowOpacity: 0.64,
     shadowRadius: 9.27,
     elevation: 40,
-    }}>
-      { (rightIcon == 'openmenu') ? 
-      <TouchableOpacity style={{marginHorizontal:30}}
-        onPress={()=>{navigation.navigate('OpenDrow')}}
-        rightIcon='openmenu'
-      > 
-        <Image 
-        source={require('../../Assets/Images/more.png')}
-        style={{width:25, height:25, }}        
-        /> 
-      </TouchableOpacity>
-      : 
-      <TouchableOpacity style={{marginHorizontal:30}}
-      onPress={()=> navigation.goBack()}
-      rightIcon='goBack'
-    > 
-      <Image 
-      source={require('../../Assets/Images/back.png')}
-      style={{width:25, height:25, }}        
-      /> 
-    </TouchableOpacity>
-      
-      }
- 
-
-      <TouchableOpacity 
-      onPress={()=>{navigation.navigate('MyBooking') }}
-      > 
-        <Image 
-        source={require('../../Assets/Images/Busbox.png')}
-        style={{width:188, height:54, }}        
-        /> 
-      </TouchableOpacity>
-      </View>
-  )
-}
-
-export default HeaderComp
-
-const styles = StyleSheet.create({})
+  },
+  HeaderTopImage:
+    { width: responsiveWidth(8), height: responsiveHeight(5), 
+  }
+})

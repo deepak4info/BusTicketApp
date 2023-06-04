@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity,Image } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 
 
 const BtnComp = ({
@@ -10,21 +11,21 @@ const BtnComp = ({
   const Navigation= useNavigation();
 
   return (
-    <TouchableOpacity style={{ flex:0.1, flexDirection:'row', backgroundColor: '#5669FF', justifyContent: 'space-around', alignItems: 'center', width:'82%', height:60, borderRadius:10, marginTop:25,marginHorizontal:'9%' }}
+    <TouchableOpacity style={styles.btnContainer}
     onPress={onPress}
     >
-      <View style={{alignSelf:'center', marginLeft:90}}> 
+      <View> 
 
       { (btnNameComp=='SignUp') ?
    
-      <Text style={{fontSize:20, fontWeight:'700', color:'#fff',}}> Sign Up</Text>
+      <Text style={styles.btnSignup}> Sign Up</Text>
        : 
-       <Text style={{fontSize:20, fontWeight:'700', color:'#fff',}}>{btnNameComp}</Text>
+       <Text style={styles.btnSignup}>{btnNameComp}</Text>
        }
       
       </View>
-      <View> 
-      <Image source={require('../../Assets/Images/next.png')} style={{width:30, height:30, alignSelf:'center',}} />
+      <View style={styles.btnbox}> 
+      <Image source={require('../../Assets/Images/next.png')} style={styles.btnboxImg} />
       </View>
     </TouchableOpacity>
   )
@@ -32,4 +33,11 @@ const BtnComp = ({
 
 export default BtnComp
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  btnContainer:
+  { flex:0.1, flexDirection:'row', backgroundColor: '#5669FF', justifyContent: 'center', alignItems: 'center', width:'82%', height:responsiveHeight(8), borderRadius:10, marginTop:responsiveHeight(4),marginHorizontal:'9%' },
+  btnSignup:
+  {fontSize:responsiveFontSize(2.5), fontWeight:'700', color:'#fff', marginLeft:responsiveWidth(2),},
+btnbox:{justifyContent:'flex-end', position:'absolute', right:responsiveWidth(8),},
+btnboxImg:{width:responsiveWidth(8), height:responsiveHeight(5), alignSelf:'flex-end',}
+})
